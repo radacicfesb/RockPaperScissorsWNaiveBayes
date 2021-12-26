@@ -23,15 +23,15 @@ public class PlayerInput : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
-            mech.SpawnRock();
+            mech.SpawnPlayerRock();
         }
         else if (Input.GetKeyDown(KeyCode.P))           //dodat jos animacije itd
         {
-            mech.SpawnPaper();
+            mech.SpawnPlayerPaper();
         }
         else if (Input.GetKeyDown(KeyCode.S))
         {
-            mech.SpawnScissors();
+            mech.SpawnPlayerScissors();
         }
     }
 
