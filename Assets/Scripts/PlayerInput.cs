@@ -25,7 +25,7 @@ public class PlayerInput : MonoBehaviour
         {
             mech.SpawnPlayerRock();
         }
-        else if (Input.GetKeyDown(KeyCode.P))           //dodat jos animacije itd
+        else if (Input.GetKeyDown(KeyCode.P))      
         {
             mech.SpawnPlayerPaper();
         }
