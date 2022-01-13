@@ -30,7 +30,7 @@ public class AISpawn : MonoBehaviour
         Chance();
 
         //AI will play if players input is valid
-        if(Input.GetKeyDown(KeyCode.R) || Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.R) || Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.S))
         {
             //if roundNum is <= 10 AI will play random
             if (mech.roundNum < 10)
@@ -40,7 +40,6 @@ public class AISpawn : MonoBehaviour
             else
                 NaiveBayes();
         }
-        Debug.Log(chanceOfRock);
     }
 
     //method for random playing

@@ -26,6 +26,7 @@ public class GameMechanics : MonoBehaviour
 
     //num for checking round number
     public int roundNum = 0;
+    int afterRandomRoundNum = 1;
 
     //nums for win rate
     int playerWonCounter = 0;
@@ -55,7 +56,7 @@ public class GameMechanics : MonoBehaviour
         //PlayerWon();
         //Debug.Log(playerWonCounter);
         //Debug.Log(aiWonCounter);
-        //Debug.Log(winRateWithoutBayes);
+        
         AIWon();
         Tie();
     }
@@ -132,7 +133,7 @@ public class GameMechanics : MonoBehaviour
         { 
             if ((newPlayerGameObject.CompareTag("Scissors") && newPlayerGameObject != null) && (newAIGameObject.CompareTag("Rock") && newAIGameObject != null))
             {
-                if(roundNum < 10)
+                if(roundNum <= 10)
                 {
                     aiWonCounter++;
                 }
@@ -143,7 +144,7 @@ public class GameMechanics : MonoBehaviour
             }
             else if ((newPlayerGameObject.CompareTag("Paper") && newPlayerGameObject != null) && (newAIGameObject.CompareTag("Scissors") && newAIGameObject != null))
             {
-                if (roundNum < 10)
+                if (roundNum <= 10)
                 {
                     aiWonCounter++;
                 }
@@ -154,7 +155,7 @@ public class GameMechanics : MonoBehaviour
             }
             else if ((newPlayerGameObject.CompareTag("Rock") && newPlayerGameObject != null) && (newAIGameObject.CompareTag("Paper") && newAIGameObject != null))
             {
-                if (roundNum < 10)
+                if (roundNum <= 10)
                 {
                     aiWonCounter++;
                 }
@@ -165,7 +166,7 @@ public class GameMechanics : MonoBehaviour
             }
 
             //write out and calcute win rate without Bayes
-            if (roundNum < 10)
+            if (roundNum <= 10)
                 WithoutNaiveBayes();
             else
                 //write out and calculate win rate with Bayes 
@@ -207,10 +208,12 @@ public class GameMechanics : MonoBehaviour
 
     void WithNaiveBayes()
     {
-        winRateWithBayes = (float) 100 * aiWonCounterWithBayes / (roundNum - 10);
+        winRateWithBayes = (float) 100 * aiWonCounterWithBayes / afterRandomRoundNum;
+        afterRandomRoundNum++;
         if (winRateWithBayes > 100)
             winRateWithBayes = 100;
         withBayes.text = winRateWithBayes.ToString("F2") + "%";
+        Debug.Log(afterRandomRoundNum);
     }
 
     #endregion
